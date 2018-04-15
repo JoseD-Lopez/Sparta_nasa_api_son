@@ -1,7 +1,7 @@
 # Sparta_nasa_api_son
 service object model REST testing
 
-#Objective
+# Objective
 
 ##was to use RSpec to test data with service object model SOM structure to test NASA api data regarding asteroids. This information can be found at https://api.nasa.gov/api.html#NeoWS
 
@@ -13,7 +13,7 @@ Lookup - lookups up particular data on a specific Asteroid based on its NASA JPL
 
 Browse - which allows us to browse the overall Asteroid data-set
 
-#Files structure
+# Files structure
 
  I set up the files according to each of the particular services calling particular data using the api and the key provided by nasa to retrieve the hashed information
 
