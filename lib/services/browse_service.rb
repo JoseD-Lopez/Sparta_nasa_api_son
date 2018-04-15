@@ -14,32 +14,28 @@ end
     @get_nasa_browse_data = JSON.parse(self.class.get("/neo/rest/v1/neo/browse?api_key=#{demo_key}").body)
   end
 
-  def print_results
-    puts JSON.pretty_generate(@get_nasa_browse_data).gsub(":", "=>")
-  end
-
   def get_reference_id_from_body_response
     @get_nasa_browse_data['near_earth_objects'][0]['neo_reference_id']
   end
 
-  def results_hash
+  def get_hash_result
    @get_nasa_browse_data.class
   end
 
-  def result_float
+  def get_orbiting_body_result_a_float
     @get_nasa_browse_data['near_earth_objects'][0]['close_approach_data'][0]['orbiting_body']
   end
 
-  def result_boolean
+  def get_potentially_hazardous_asteroid_result_boolean
     @get_nasa_browse_data['near_earth_objects'][0]['is_potentially_hazardous_asteroid']
   end
 
-  def result_date_structure
+  def get_close_approach_date_structure
     @get_nasa_browse_data['near_earth_objects'][0]['close_approach_data'][0]['close_approach_date']
   end
 
-  def result_hash_should_have_this_key
-    @get_nasa_browse_data['near_earth_objects'][0]['miles']
+  def get_hash_key_should_match
+    @get_nasa_browse_data['page']
   end
 
 end
