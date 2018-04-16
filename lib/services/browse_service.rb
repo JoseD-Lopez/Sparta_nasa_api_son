@@ -1,17 +1,16 @@
 require 'httparty'
 require 'json'
+require 'dotenv'
 
 class BrowseNasaService
   include HTTParty
 
+  Dotenv.load
+
   base_uri 'https://api.nasa.gov'
 
-def initialize
-  @api_key = 'xSueer8U7aEtmgluw9uQ6TwzBj0qegX5s662WJ6y'
-end
-
   def browse_nasa_data(demo_key)
-    @get_nasa_browse_data = JSON.parse(self.class.get("/neo/rest/v1/neo/browse?api_key=#{demo_key}").body)
+    @get_nasa_browse_data = JSON.parse(self.class.get("/neo/rest/v1/neo/browse?api_key=#{ENV['API_KEY']}").body)
   end
 
   def get_reference_id_from_body_response

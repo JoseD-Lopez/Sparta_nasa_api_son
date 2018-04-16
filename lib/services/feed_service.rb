@@ -1,17 +1,17 @@
 require 'httparty'
 require 'json'
+require 'dotenv'
 
 class FeedNasaService
   include HTTParty
 
+  Dotenv.load
+
   base_uri 'https://api.nasa.gov/neo/rest/v1'
 
-  def initialize
-    @api_key = 'xSueer8U7aEtmgluw9uQ6TwzBj0qegX5s662WJ6y'
-  end
 
   def feed_nasa_data(start_date, end_date)
-    @get_nasa_feed_data = JSON.parse(self.class.get("/feed?start_date=#{start_date}&end_date=#{end_date}&api_key=#{@api_key}").body)
+    @get_nasa_feed_data = JSON.parse(self.class.get("/feed?start_date=#{start_date}&end_date=#{end_date}&api_key=#{ENV['API_KEY']}").body)
   end
 
   def get_neo_reference_id_to_match
