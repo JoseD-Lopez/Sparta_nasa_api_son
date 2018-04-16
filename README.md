@@ -3,7 +3,7 @@ service object model REST testing
 
 # Objective
 
-##was to use RSpec to test data with service object model SOM structure to test NASA api data regarding asteroids. This information can be found at https://api.nasa.gov/api.html#NeoWS
+##Use RSpec to test data with a service object model SOM structure to test NASA api asteroids data. This information can be found at https://api.nasa.gov/api.html#NeoWS
 
 There are three different api sources providing different services:
 
@@ -15,11 +15,11 @@ Browse - which allows us to browse the overall Asteroid data-set
 
 # Files structure
 
- I set up the files according to each of the particular services calling particular data using the api and the key provided by nasa to retrieve the hashed information
+ The first main issue is to set the files according to each of the particular services that the api is calling. Then using the key provided access the data. The data structure in the case of Nasa astroid api is in the form of a hash
 
-For each of the services I then created the necessary Spec files t hold the tests for this again split the files according to the service provided
+For each of the services I then created the necessary Spec files to hold the tests for this again split the files according to the service provided
 
-I linked spec file test to service by using a master class (service_master.rb) to create the link
+I linked the spec file test to service file by using a master class (service_master.rb) to create the link
 
 Each spec file creates a new instance of the master class and then chain links to particular method that has an instance of service file that they want to connect to
 
