@@ -18,8 +18,25 @@ class LookupNasaService
     @get_nasa_lookup_data['neo_reference_id']
   end
 
+  def estimated_diameter_size_float_check
+    @get_nasa_lookup_data['estimated_diameter']['kilometers']['estimated_diameter_min']
+  end
+
   def get_hash_data_results
     @get_nasa_lookup_data['is_potentially_hazardous_asteroid']
+  end
+
+  def get_epoch_date_close_approach_float
+    @get_nasa_lookup_data['close_approach_data'][0]['epoch_date_close_approach']
+  end
+
+  def get_miles_per_hour_string
+    @get_nasa_lookup_data['close_approach_data'][0]['relative_velocity']['miles_per_hour']
+  end
+
+  def get_miles_per_hour_character_length
+    @get_nasa_lookup_data['close_approach_data'][0]['relative_velocity']['miles_per_hour'].to_f
+    @get_nasa_lookup_data['close_approach_data'][0]['relative_velocity']['miles_per_hour'].length
   end
 
   def get_name_of_orbiting_planet
